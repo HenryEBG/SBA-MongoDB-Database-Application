@@ -1,41 +1,35 @@
 const { Schema, model } = require('../config/db-connection');
-
-const userSchema = Schema({
-  userId : {
+const productSchema = Schema({ 
+  productId : {
     type: Number,
     required:true,
     unique: true,
   },
-  email: {
+  title: {
     type: String,
     required: true,
     unique: true,
   },
-  password: {
+  price : {
+    type: Number,
+    required:true,
+    unique: true,
+  },
+  description: {
     type: String,
     required: true,
     unique: true,
-    min: 5,
   },
-  username : {
-    type: String,
-    required: true,
-    unique: true,
-    min: 5,
-  },
-  firstname : {
+  category: {
     type: String,
     required: true,
     unique: false,
-    min: 3, 
   },
-  lastname : {
+  image :  {
     type: String,
     required: true,
     unique: false,
-    min: 3, 
   },
 
 });
-
-module.exports = model('User', userSchema);
+module.exports = model('Product', productSchema);
