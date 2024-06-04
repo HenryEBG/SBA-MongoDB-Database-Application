@@ -20,7 +20,17 @@ async function loginUser(req,res){
     res.render("login",{title:"Login Customer Fake Store"});
 
   } catch (err) {
-    res.status(400).json("Login Page not found");
+    res.status(400).json(err);
+  }
+}
+
+async function userStore(req,res){
+  try {
+    if (req.body.username && req.body.password) {
+
+    }
+  } catch (err) {
+    res.status(400).json(err);
   }
 }
 
