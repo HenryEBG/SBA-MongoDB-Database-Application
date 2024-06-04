@@ -6,6 +6,11 @@ const express = require('express');
 const app = express();
 // Port in which the server will run on
 const PORT = process.env.PORT || 8000;
+
+//adding the view template ejs
+app.set('views','views');
+app.set('view engine','ejs');
+
 // Requiring example router
 const userRouter = require('./routes/users.js');
 
