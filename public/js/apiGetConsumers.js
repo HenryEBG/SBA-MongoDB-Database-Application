@@ -15,7 +15,7 @@ const myUpdateForm=document.getElementById('form_update_product')
  */
 async function getProducts() {
   try {
-    const response = await fetch('http://localhost:3000/products/');
+    const response = await fetch('http://localhost:3005/products/');
     const data = await response.json();
     console.log(data)
     productDisplay(data,true)
@@ -29,7 +29,7 @@ async function getProducts() {
  */
 async function getCategories(){
   try {
-    const response = await fetch('https://fakestoreapi.com/products/categories');
+    const response = await fetch('http://localhost:3005/categories/');
     const data = await response.json();
     categorySelect(data)
   } catch (error) {
@@ -44,7 +44,7 @@ async function getCategories(){
  */
 async function productsByCategories(event){
   console.log(event.target.value)
-  let url='http://localhost:3000/products'
+  let url='http://localhost:3005/products'
   if(event.target.value!=""){
     url+=`/category/${event.target.value}`
   }

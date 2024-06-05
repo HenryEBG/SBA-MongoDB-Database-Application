@@ -99,7 +99,7 @@ productContainer.appendChild(card);
 function categorySelect(categories){
   categories.forEach(category => {
      const option = document.createElement('option');
-    option.innerHTML=`<option value="${category}">${category}</option>`
+    option.innerHTML=`<option value="${category.name}">${category.name}</option>`
     selectCategories.appendChild(option)
   })
   
