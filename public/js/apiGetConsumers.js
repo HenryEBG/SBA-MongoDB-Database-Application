@@ -4,10 +4,6 @@
  */
 import { productDisplay,categorySelect } from './display.js';
 
-/**
- * get the form inside the modal to update products
- */
-const myUpdateForm=document.getElementById('form_update_product')
 
 
 /**
@@ -59,26 +55,5 @@ async function productsByCategories(event){
   }
 }
 
-/**
- * Async function that get the info from a product using an API
- * It is used to get the actual data of the product to be modified
- * @param {*} productId 
- */
-async function productById(productId){
-  try {
-      const response = await fetch(`http://localhost:3005/products/${productId}`);
-      const data = await response.json();
-      //agregar el id
-      myUpdateForm.id.value=data.id;
-      myUpdateForm.update_name.value=data.title;
-      myUpdateForm.update_price.value=data.price;
-      myUpdateForm.update_description.value=data.description;
-      myUpdateForm.update_image.value=data.image;
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-
 //exports functions to the index.js file
-export {productsByCategories, getCategories,getProducts,productById}
+export {productsByCategories, getCategories,getProducts}

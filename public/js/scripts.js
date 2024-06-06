@@ -10,7 +10,7 @@
 //import files to delete, to add o r modify and get information from the API
 import {addProduct} from './apiCartProducts.js';
 //import { add } from './apiPostConsumers.js';
-import { getProducts,getCategories,productsByCategories,productById } from '/js/apiGetConsumers.js';
+import { getProducts,getCategories,productsByCategories } from '/js/apiGetConsumers.js';
 
 //Nodes to the product Container and to the Categories select
 const productContainer = document.getElementById("productContainer");

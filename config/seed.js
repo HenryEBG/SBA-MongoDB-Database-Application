@@ -10,6 +10,10 @@ const Cart = require("../models/Cart.js");
 ///////////////////////////
 //CHANGE THIS SAMPLE DATA TO THE DATA YOU'RE WORKING WITH!!!
 ///////////////////////////
+
+/**********************************
+ * seeds to the users collection  *
+ * *******************************/
 const users = [
   {
     userId:1,
@@ -94,6 +98,9 @@ const users = [
   }
 ];
 
+/***********************************
+ * seeds to the category collection
+ ***********************************/
 const categories =[
   {
     categoryId: 1,
@@ -113,6 +120,9 @@ const categories =[
   }
 ];
 
+/**
+ * Seeds to the product collection
+ */
 const products =
 [
   {
@@ -279,6 +289,9 @@ const products =
   }
   ];
 
+  /**
+   * Seeds to the carts collection
+   */
 const carts =[
   {
   cartId: 1,

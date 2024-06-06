@@ -1,13 +1,8 @@
 import { cartDisplay } from './display.js';
-/**
- * Creating a node to manipulate the alert showing when a fake product is added 
- * to the cart
- */
-
 
 /**
- * Creating a node to manipulate the alert showing when a fake product is added 
- * to the cart
+ * Function that call an API to eliminate an element from the cart
+ * and call another API to redraw the cart without the product
  */
 
 async function deleteProduct(event) {
@@ -31,29 +26,6 @@ async function deleteProduct(event) {
     console.log(error)
   }
 }
-/**
- * Function that receive the ID of a product to delete with the API
- * @param {} id 
- */
-
-
-// async function addCart(id){
-//   try {
-//     const response = await fetch(`http://localhost:3000/carts/add/${id}`)
-//         const data = await response.json()  
-
-//         addAlert.textContent=`The product id ${data.title} was added to the cart.`
-//         addAlert.style.display="block"
-//         setTimeout (() =>{
-//             addAlert.style.display="none"
-//           }, 5000)
-//   } catch (error) {
-//     console.log(`Can't add the element with the id ${id}`)
-//   }
-
-// }
-
-
 
 /**
  * When the event listener in the productContainer receive a click
@@ -82,7 +54,6 @@ function addProduct(event) {
   fetch("http://localhost:3005/carts/add", requestOptions)
     .then((response) => response.text())
     .then((result) => {
-      //console.log(result)
       //indicate that the product was added
       const addAlertNode = document.getElementById("addAlert")
       addAlertNode.textContent = `The register Number ${event.target.id} was added.`
@@ -98,8 +69,6 @@ function addProduct(event) {
 
 }
 
-
-
 /**
  * Async function that consume a GET API to get all the products of the cart
  */
@@ -114,6 +83,5 @@ async function getProducts() {
     console.log(error)
   }
 }
-
 
 export { addProduct, getProducts,deleteProduct }
