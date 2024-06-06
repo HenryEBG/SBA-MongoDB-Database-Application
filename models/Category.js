@@ -12,4 +12,5 @@ const categorySchema = Schema({
   },
   
 });
+categorySchema.index({ name: 1 }); 
 module.exports = model('Category', categorySchema);

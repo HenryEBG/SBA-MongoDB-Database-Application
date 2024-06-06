@@ -23,4 +23,5 @@ const cartSchema = Schema({
     }
   ],  
 });
+cartSchema.index({ userId: 1 }); 
 module.exports = model('Cart', cartSchema);

@@ -29,4 +29,5 @@ const productSchema = Schema({
   },
 
 });
+productSchema.index({ productId: 1 }); 
 module.exports = model('Product', productSchema);

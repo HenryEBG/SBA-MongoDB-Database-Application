@@ -37,5 +37,6 @@ const userSchema = Schema({
   },
 
 });
+userSchema.index({ username: 1 }); 
 
 module.exports = model('User', userSchema);
