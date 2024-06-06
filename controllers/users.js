@@ -32,9 +32,9 @@ async function userStore(req,res){
        const user = await User.find({
         'username': req.body.username, 
         'password': req.body.password
-      });
+      }).limit(1);
      if(user){
-        res.render("store", { title: `Welcome to my Fake Store ${req.body.username}`,username: req.body.username, userid :user.userId});
+        res.render("store", { title: `Welcome to my Fake Store ${req.body.username}`,username: req.body.username, userid :user[0].userId});
       } else {
         res.status(200).json({
           message: 'Wrong username or password',

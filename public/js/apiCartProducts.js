@@ -79,13 +79,13 @@ function addProduct(event) {
     redirect: "follow"
   };
 
-  fetch("http://localhost:3000/carts/add", requestOptions)
+  fetch("http://localhost:3005/carts/add", requestOptions)
     .then((response) => response.text())
     .then((result) => {
-      console.log(result)
+      //console.log(result)
       //indicate that the product was added
       const addAlertNode = document.getElementById("addAlert")
-      addAlertNode.textContent = `The register Number ${event.target.id} was added (only en actual session).`
+      addAlertNode.textContent = `The register Number ${event.target.id} was added.`
       addAlertNode.style.display = "block"
       setTimeout(() => {
         addAlertNode.style.display = "none"
@@ -106,7 +106,7 @@ function addProduct(event) {
 async function getProducts() {
   const myUser = document.getElementById("user");
   try {
-    const response = await fetch(`http://localhost:3000/carts/products/${myUser.textContent}`);
+    const response = await fetch(`http://localhost:3005/carts/products/${sessionStorage.getItem("userid")}`);
     const data = await response.json();
     console.log(data)
     cartDisplay(data, true)

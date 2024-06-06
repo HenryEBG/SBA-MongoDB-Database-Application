@@ -66,7 +66,7 @@ async function productsByCategories(event){
  */
 async function productById(productId){
   try {
-      const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
+      const response = await fetch(`http://localhost:3005/products/${productId}`);
       const data = await response.json();
       //agregar el id
       myUpdateForm.id.value=data.id;

@@ -23,6 +23,7 @@ app.use(express.static('public'));
 const userRouter = require('./routes/users.js');
 const productRouter = require('./routes/products.js');
 const categoryRouter = require('./routes/categories.js');
+const cartRouter = require('./routes/carts.js');
 
 // Configuring the server to accept and parse JSON data.
 app.use(express.json());
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
 app.use('/users', userRouter);
 app.use('/products',productRouter);
 app.use('/categories',categoryRouter);
+app.use('/carts',cartRouter);
 
 // Error Handling Middlware
 app.use((err, req, res, next) => {
