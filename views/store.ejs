@@ -7,8 +7,10 @@
         <meta name="author" content="" />
         <title><%=title %></title>
         <script>
-        sessionStorage.setItem("username", "<%=username %>")
-        sessionStorage.setItem("userid", "<%=userid %>")
+            // if(!sessionStorage.getItem("username")){
+            sessionStorage.setItem("username", "<%=username %>")
+            sessionStorage.setItem("userid", "<%=userid %>")
+        // }
         </script>
         <!-- Favicon-->
         <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> -->
@@ -28,6 +30,7 @@
                         <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li> -->
                         <li class="nav-item"><a class="nav-link" href="#!">Filter <select name="categories" id="categories"><option value="">All Products</option></select></a></li>
                         <li class="nav-item"><a class="nav-link" href="http://localhost:3005/carts/<%=userid %>">Cart</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:3005/users/login">Logout</a></li>
                 </div>
             </div>
         </nav>

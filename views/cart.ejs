@@ -28,8 +28,9 @@
                         <script> 
                                 //adding the link to return to the store page.  Using a router and a template API
                                 const mylink=document.getElementById("storeback");
-                                mylink.setAttribute("href",`http://localhost:3000/users/store/${sessionStorage.getItem("userid")}`)
+                                mylink.setAttribute("href",`http://localhost:3005/users/store/?userid=${sessionStorage.getItem("userid")}`)
                         </script>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:3005/users/login">Logout</a></li>
                 </div>
             </div>
         </nav>

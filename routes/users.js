@@ -7,5 +7,6 @@ const router = Router();
 
 router.get('/login', usersCtrl.loginUser);
 router.post('/store', usersCtrl.userStore);
+router.get('/store', usersCtrl.cartStore);
 
 module.exports = router;

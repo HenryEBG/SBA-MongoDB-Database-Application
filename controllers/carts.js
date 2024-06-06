@@ -6,7 +6,7 @@ module.exports = {
   addProduct,
   getProducts,
   showCart,
-  //deleteProduct
+  deleteProduct
 
 };
 
@@ -72,18 +72,48 @@ async function getProducts(req,res){
       const listProducts=[];
       
        for(let i=0;i<existUserCart.products.length;i++){
-        console.log(existUserCart.products[i]);
+        
           const foundProduct= await Product.findOne({'productId': existUserCart.products[i].productId });
          if(foundProduct){
              listProducts.push({product:foundProduct,quantity:existUserCart.products[i].quantity})
-           }
+
+            }
        }
-      // console.log(listProducts)
+     
       res.status(200).json(listProducts);
     } else {
-      res.status(200).json([]);
+      res.send(false);
     }
   } catch (err) {
     res.status(400).json(err);
   }
 }
+
+async function deleteProduct(req,res){
+  try {
+    const existUserCart= await Cart.findOne({'userId':req.query.userid});
+    
+    if(existUserCart){
+      const productUserCart = existUserCart.products.find((p) => p.productId == req.params.id);
+      
+      if (productUserCart) {
+        
+        
+        existUserCart.products.splice(existUserCart.products.indexOf(productUserCart),1);
+        existUserCart.save();
+        console.log(existUserCart.products)
+        if (existUserCart.products.length == 0) {
+          await Cart.deleteOne({'userId':req.query.userid});
+        }
+        res.send(req.params.id);
+      } else {
+        res.send(false);
+      }
+    } else {
+      res.send(false);
+    }
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+

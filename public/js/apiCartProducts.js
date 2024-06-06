@@ -15,7 +15,7 @@ async function deleteProduct(event) {
   event.preventDefault()
   console.log("intentando borrar");
   try {
-    const response = await fetch(`http://localhost:3000/carts/${event.target.id}?userid=${sessionStorage.getItem("userid")}`,{
+    const response = await fetch(`http://localhost:3005/carts/delete/${event.target.id}?userid=${sessionStorage.getItem("userid")}`,{
       method:"DELETE"
     });
     const data = await response.json();
@@ -24,7 +24,7 @@ async function deleteProduct(event) {
     setTimeout(() => {
       deleteAlert.style.display = "none"
     }, 5000)
-    const resProducts = await fetch(`http://localhost:3000/carts/products/${sessionStorage.getItem("userid")}`);
+    const resProducts = await fetch(`http://localhost:3005/carts/products/${sessionStorage.getItem("userid")}`);
     const products = await resProducts.json();
     cartDisplay(products, true)
   } catch (error) {

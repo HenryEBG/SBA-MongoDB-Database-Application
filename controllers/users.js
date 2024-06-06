@@ -4,6 +4,7 @@ module.exports = {
   //createUser,
   loginUser,
   userStore,
+  cartStore,
 };
 
 // async function createUser(req, res) {
@@ -51,4 +52,20 @@ async function userStore(req,res){
     res.status(400).json(err);
   }
 }
+
+
+async function cartStore(req,res){
+  try{
+    console.log(req.query);
+    const user = await User.find({
+      'userId': req.query.userid
+    }).limit(1);
+    console.log(user);
+    res.render("store", { title: `Welcome to my Fake Store ${user[0].username}`,username: user[0].username, userid :req.query.userid});
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
+
 

@@ -80,11 +80,11 @@ function cartDisplay(products,erase) {
         </div>
     </div>
     <!-- Product actions-->
-    <form action="http://localhost:3000/carts/delete" method="PATCH" id="form${product.product.id}"> 
-    <input type="hidden" name="id" value="${product.product.id}" />
+    <form action="http://localhost:3005/carts/delete/${sessionStorage.getItem("userid")}" method="DELETE" > 
+    <input type="hidden" name="id" value="${product.product.productId}" />
     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-center ">
         <div class="text-center">
-        <input class="btn btn-outline-dark mt-auto ml-2" type="submit" id="${product.product.id}"value="Remove from Cart">
+        <input class="btn btn-outline-dark mt-auto ml-2" type="submit" id="${product.product.productId}"value="Remove from Cart">
         
         </div>
     </div>
