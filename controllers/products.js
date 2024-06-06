@@ -1,4 +1,4 @@
-const Product = require('../models/Produt');
+const Product = require('../models/Product');
 
 module.exports = {
   //createUser,
