@@ -50,18 +50,43 @@ http://localhost:3005/carts/delete/:productid?userid=1
 Include the functions to display the elements in the store.html file.
 - categorySelect  add elements option to the selects inside the modals and the filter in the navbar
 - productDisplay add card elements to the principal container in the index.html file to show the products.
+- cartDisplay. Function that display products to the carts page.
+All of this function are auxiliars from the other function only to modify the DOM.
+
+## Styles Folder
+### styles.css
+This file include all the CSS to display the pages.
+
+## views Folder
+This folder include the template to show the login, store and cart pages dynamically using EJS library.
+- **cart.ejs** Include the template to show the cart.html file. Recieve a parameter of the id of the user.
+- **login.ejs** Include the template to show the login.html file. Delete all session variables and call the store page.
+- **login.ejs** Include the template to show the store.html file. Recieve the username and the userid.
 
 ### Bootstrap Template
 The project used a free boostrap template. 
 
-### CSS files
-Inside the folder  styles there is a css file styles.css that contain all the css from the page.
 
 ## Backend Files
-### data
-This folder contains all the files with the initial data
+
+### models
+This folder contains all the files with the models of the collections and indexes.
+- **Cart.js** Contain the mongoose model for the carts collection.
+- **category.js** Contain the mongoose model for the categories collection.
+- **Product.js** Contain the mongoose model for the products collection.
+- **User.js** Contain the mongoose model for the users(consumers) collection.
+
+### Controllers
+This folder contains all the files with the functions to manipulate data in the mongoDB database and return the results to the routes.
+
 #### carts.js
-Contain the info of the carts.
+Contains 4 functions to manipulate the carts collection
+ - **addProduct** Function that add a product to the cart or change the quantity of the product.
+ - **getProducts** Function that obtain the list of products of a cart.
+ - **showCart** Function that charge the template of the cart.
+ - **deleteProduct** Function that delete a product from the cart or the cart if the product is the last one.
+
+
 #### categories
 Contain the info of the categories of the products to filter
 #### products.js
